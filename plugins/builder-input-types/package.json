@@ -13,12 +13,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jhs129/builder-plugin-cmslink.git",
+    "url": "git+https://github.com/jhs129/plugin-builder-input-types.git",
     "directory": "plugins/builder-input-types"
   },
-  "homepage": "https://github.com/jhs129/builder-plugin-cmslink#readme",
+  "homepage": "https://github.com/jhs129/plugin-builder-input-types#readme",
   "bugs": {
-    "url": "https://github.com/jhs129/builder-plugin-cmslink/issues"
+    "url": "https://github.com/jhs129/plugin-builder-input-types/issues"
   },
   "keywords": [
     "builder.io",

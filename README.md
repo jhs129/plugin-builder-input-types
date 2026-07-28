@@ -1,4 +1,4 @@
-# builder-plugin-cmslink
+# plugin-builder-input-types
 
 A pnpm/turborepo workspace for the CMSLink Builder.io plugin and its companion pieces.
 
