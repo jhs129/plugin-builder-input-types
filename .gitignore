@@ -1,0 +1,29 @@
+# dependencies
+node_modules/
+
+# production
+dist/
+
+# misc
+.DS_Store
+
+# debug
+npm-debug.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+!.env.example
+
+# typescript
+*.tsbuildinfo
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# turbo
+.turbo/

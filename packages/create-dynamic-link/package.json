@@ -1,0 +1,40 @@
+{
+  "name": "@jhsdc/create-dynamic-link",
+  "version": "1.0.0",
+  "description": "Scaffolds the Builder.io DynamicLink component and its /dynamiclink redirect route into a Next.js App Router project",
+  "license": "ISC",
+  "author": "JHS Digital Consulting",
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "create-dynamic-link": "bin/create-dynamic-link.js"
+  },
+  "files": [
+    "bin",
+    "templates"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhs129/builder-plugin-cmslink.git",
+    "directory": "packages/create-dynamic-link"
+  },
+  "homepage": "https://github.com/jhs129/builder-plugin-cmslink#readme",
+  "bugs": {
+    "url": "https://github.com/jhs129/builder-plugin-cmslink/issues"
+  },
+  "keywords": [
+    "builder.io",
+    "cms-link",
+    "dynamic-link",
+    "nextjs",
+    "scaffold",
+    "cli"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "lint": "node --check bin/create-dynamic-link.js"
+  }
+}
