@@ -1,6 +1,6 @@
 {
   "name": "@jhsdc/builder-input-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Builder.io custom input types plugin — registers CMSLink and other custom input editors",
   "engines": {
     "node": "22.x"
