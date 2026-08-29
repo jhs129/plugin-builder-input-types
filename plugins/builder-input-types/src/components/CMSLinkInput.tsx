@@ -24,10 +24,12 @@ const CMSLinkInput: React.FC<CMSLinkInputProps> = ({ value, onChange, defaultTyp
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const pluginSettings = (appState as any)?.user?.organization?.value?.settings?.plugins?.get?.("@jhsdc/builder-input-types");
 
-  const appState2 = (appState as any).user?.organization;
-  console.log("App State 2", appState2);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const apiKey = pluginSettings?.get?.("CMSLinkSettings")?.get?.("apiKey") || (appState as any).user?.mainSpaceApiKey || "";
+
+  // The entry currently open in the visual editor — omit it from the picker so a page can't reference itself
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const excludeContentId = (appState as any)?.designerState?.editingContentModel?.id as string | undefined;
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const models = pluginSettings?.get?.("CMSLinkSettings")?.toJSON?.()?.models?.map?.((model: any) => ({
@@ -74,6 +76,7 @@ const CMSLinkInput: React.FC<CMSLinkInputProps> = ({ value, onChange, defaultTyp
       defaultType={defaultType}
       apiKey={apiKey}
       models={models}
+      excludeContentId={excludeContentId}
     />
   );
 };
