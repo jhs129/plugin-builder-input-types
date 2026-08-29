@@ -39,7 +39,7 @@ Builder.io lets editors link to a URL, but out of the box there's no first-class
 
 ## Setting up a new project end to end
 
-1. **Register the plugin in Builder.io** — add `https://cdn.jsdelivr.net/npm/@jhsdc/builder-input-types@1/dist/plugin.system.js` under Space Settings → Plugins. See [plugins/builder-input-types/README.md](plugins/builder-input-types/README.md#install) for details, and configure which content models the picker should search.
+1. **Register the plugin in Builder.io** — add `https://builder-input-types.jhsdigitalconsulting.com/plugin.system.js?pluginId=@jhsdc/builder-input-types` under Space Settings → Plugins. See [plugins/builder-input-types/README.md](plugins/builder-input-types/README.md#install) for details, and configure which content models the picker should search.
 2. **Scaffold the app-side pieces** — from your Next.js app's directory, run `npx @jhsdc/create-dynamic-link`. See [packages/create-dynamic-link/README.md](packages/create-dynamic-link/README.md#usage).
 3. **Set `NEXT_PUBLIC_BUILDER_API_KEY`** in your app's environment — the scaffolded redirect route uses it to query the Content API.
 4. **Edit `MODEL_CONFIG`** in the generated `app/dynamiclink/[model]/[type]/[id]/route.ts` for every content model you want `CMSLink`/`DynamicLink` to be able to deep-link to.

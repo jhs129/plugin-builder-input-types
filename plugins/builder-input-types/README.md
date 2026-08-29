@@ -2,7 +2,7 @@
 
 A custom [Builder.io](https://www.builder.io) plugin that registers a `CMSLink` field editor — a link input that lets content editors choose between an external URL and a live reference to another piece of Builder.io content.
 
-Distributed as a pre-bundled `dist/plugin.system.js` file that you register directly in your Builder.io space; there's nothing to `import` into application code.
+Distributed as a pre-bundled `dist/plugin.system.js` file, hosted at [builder-input-types.jhsdigitalconsulting.com](https://builder-input-types.jhsdigitalconsulting.com/plugin.system.js?pluginId=@jhsdc/builder-input-types), that you register directly in your Builder.io space; there's nothing to `import` into application code.
 
 ## Table of contents
 
@@ -33,14 +33,14 @@ The counterpart on the rendering side is [`@jhsdc/create-dynamic-link`](../../pa
 
 ## Install
 
-This package isn't `npm install`ed into an app. Instead, host `dist/plugin.system.js` somewhere Builder.io's editor can fetch it (npm's CDN mirrors work well for this — no separate hosting/deploy needed), then register that URL:
+This package isn't `npm install`ed into an app. Register the hosted plugin bundle as a custom plugin in your Builder.io space:
 
 1. Go to **Space Settings → Plugins** in Builder.io.
 2. Under **Custom Plugins**, add:
    ```
-   https://cdn.jsdelivr.net/npm/@jhsdc/builder-input-types@1/dist/plugin.system.js
+   https://builder-input-types.jhsdigitalconsulting.com/plugin.system.js?pluginId=@jhsdc/builder-input-types
    ```
-   (Pin an exact version instead of the `@1` range if you want reproducible behavior across environments — e.g. `@1.0.0`.)
+   The `pluginId` query parameter must match the plugin's registered id (`@jhsdc/builder-input-types`).
 3. Save. Builder.io fetches and evaluates the bundle, which self-registers the `CMSLink` editor and a **CMS Link** plugin settings panel.
 
 ## Configuration
@@ -99,7 +99,7 @@ pnpm --filter @jhsdc/builder-input-types lint
 pnpm --filter @jhsdc/builder-input-types type-check
 ```
 
-To iterate against a real space while developing, register `http://localhost:1269/plugin.system.js` as the plugin URL instead of the published one, then reload the Builder.io editor after each change.
+To iterate against a real space while developing, register `http://localhost:1269/plugin.system.js?pluginId=@jhsdc/builder-input-types` as the plugin URL instead of the hosted one, then reload the Builder.io editor after each change.
 
 ## Package layout
 
