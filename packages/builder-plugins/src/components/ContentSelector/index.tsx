@@ -9,6 +9,7 @@ interface HitItem {
 interface ContentSelectorProps {
   models: { name: string; displayName: string }[];
   apiKey: string;
+  excludeContentId?: string;
   onContentSelect: (content: { id: string; name: string; type: string; href: string }) => void;
   onClose: () => void;
 }
@@ -17,6 +18,7 @@ export const ContentSelector: React.FC<ContentSelectorProps> = ({
   onContentSelect,
   models,
   apiKey,
+  excludeContentId,
   onClose,
 }) => {
   const [selectedHit, setSelectedHit] = useState<HitItem | null>(null);
@@ -53,6 +55,7 @@ export const ContentSelector: React.FC<ContentSelectorProps> = ({
   }, [selectedModel, apiKey]);
 
   const filtered = searchResults.filter((hit) => {
+    if (excludeContentId && hit.id === excludeContentId) return false;
     if (!searchQuery) return true;
     const q = searchQuery.toLowerCase();
     return (
@@ -156,8 +159,16 @@ export const ContentSelector: React.FC<ContentSelectorProps> = ({
         {selectedModel && (
           <>
             <div style={{ padding: '8px 16px', borderBottom: '1px solid #e5e7eb' }}>
+              <style>{`
+                .cmslink-search-input::placeholder {
+                  color: #6b7280;
+                  -webkit-text-fill-color: #6b7280;
+                  opacity: 1;
+                }
+              `}</style>
               <input
                 type="text"
+                className="cmslink-search-input"
                 placeholder="Search content..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -170,7 +181,10 @@ export const ContentSelector: React.FC<ContentSelectorProps> = ({
                   borderRadius: 4,
                   outline: 'none',
                   boxSizing: 'border-box',
-                  color: '#374151',
+                  background: '#fff',
+                  color: '#111827',
+                  colorScheme: 'light',
+                  WebkitTextFillColor: '#111827',
                 }}
               />
             </div>

@@ -21,6 +21,7 @@ export interface CMSLinkProps {
     name: string;
     displayName: string;
   }[];
+  excludeContentId?: string;
 }
 
 const label: React.CSSProperties = {
@@ -56,6 +57,7 @@ export const CMSLink: React.FC<CMSLinkProps> = ({
   defaultType = 'url',
   apiKey,
   models,
+  excludeContentId,
 }) => {
   const [type, setType] = useState<'url' | 'model'>(defaultType);
   const [href, setHref] = useState('');
@@ -206,6 +208,7 @@ export const CMSLink: React.FC<CMSLinkProps> = ({
         <ContentSelector
           models={models}
           apiKey={apiKey}
+          excludeContentId={excludeContentId}
           onContentSelect={handleContentSelect}
           onClose={() => setIsContentSelectorOpen(false)}
         />
