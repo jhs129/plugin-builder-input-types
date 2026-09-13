@@ -1,7 +1,7 @@
 {
   "name": "@jhsdc/builder-input-types",
-  "version": "1.0.1",
-  "description": "Builder.io custom input types plugin — registers CMSLink and other custom input editors",
+  "version": "1.0.2",
+  "description": "A library of custom Builder.io input editors for React integrations — featuring CMSLink, a link input that lets content editors choose between an external URL and a live reference to another piece of Builder.io content.",
   "engines": {
     "node": "22.x"
   },

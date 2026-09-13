@@ -1,6 +1,6 @@
 # @jhsdc/builder-input-types
 
-A custom [Builder.io](https://www.builder.io) plugin that registers a `CMSLink` field editor — a link input that lets content editors choose between an external URL and a live reference to another piece of Builder.io content.
+A library of custom [Builder.io](https://www.builder.io) input editors for React integrations — featuring `CMSLink`, a link input that lets content editors choose between an external URL and a live reference to another piece of Builder.io content.
 
 Distributed as a pre-bundled `dist/plugin.system.js` file, hosted at [builder-input-types.jhsdigitalconsulting.com](https://builder-input-types.jhsdigitalconsulting.com/plugin.system.js?pluginId=@jhsdc/builder-input-types), that you register directly in your Builder.io space; there's nothing to `import` into application code.
 
@@ -18,7 +18,7 @@ Distributed as a pre-bundled `dist/plugin.system.js` file, hosted at [builder-in
 
 ## How it works
 
-Builder.io lets a plugin register a custom "editor" — a React component that renders in place of the default field UI whenever a component input declares that editor's `type`. This package registers one:
+Builder.io lets a plugin register custom "editors" — React components that render in place of the default field UI whenever a component input declares that editor's `type`. This package is published to the Builder.io plugin marketplace and registers its input editors from a single bundle. Today that's `CMSLink`:
 
 ```ts
 Builder.registerEditor({
@@ -33,9 +33,21 @@ The counterpart on the rendering side is [`@jhsdc/create-dynamic-link`](../../pa
 
 ## Install
 
-This package isn't `npm install`ed into an app. Register the hosted plugin bundle as a custom plugin in your Builder.io space:
+This package isn't `npm install`ed into an app — it's a Builder.io plugin, enabled at the space level.
 
-1. Go to **Space Settings → Plugins** in Builder.io.
+### From the Builder.io Plugins page (recommended)
+
+The plugin is published to Builder.io's official plugin marketplace, so it can be enabled directly from the UI:
+
+1. In Builder.io, go to **Space Settings → Plugins**.
+2. Under **View All**, search for **CMS Link**.
+3. Enable it, then use **Settings** to configure which content models the `Reference` picker searches (see [Configuration](#configuration)).
+
+### As a custom plugin (manual bundle URL)
+
+To point at a different version, a fork, or a local dev build instead of the published marketplace listing, register the bundle URL directly:
+
+1. Go to **Space Settings → Plugins**.
 2. Under **Custom Plugins**, add:
    ```
    https://builder-input-types.jhsdigitalconsulting.com/plugin.system.js?pluginId=@jhsdc/builder-input-types
